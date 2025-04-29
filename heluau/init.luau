@@ -1,5 +1,5 @@
 local heluau = {
-	complex = require("./complex"),
+	complex = require("@complex"),
 }
 
 return heluau

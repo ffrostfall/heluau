@@ -6,6 +6,7 @@ local function IMAGINARY(n: vector)
 	return n.y
 end
 
+-- Constructors
 local function complex_create(real: number, imaginary: number): vector
 	return vector.create(real, imaginary, 0)
 end
@@ -18,6 +19,7 @@ local function complex_from_imaginary(imaginary: number): vector
 	return vector.create(0, imaginary, 0)
 end
 
+-- Accessors
 local function complex_real_part(complex_num: vector): number
 	return REAL(complex_num)
 end
@@ -26,6 +28,7 @@ local function complex_imaginary_part(complex_num: vector): number
 	return IMAGINARY(complex_num)
 end
 
+-- Operations
 local function complex_add(left: vector, right: vector): vector
 	return left + right
 end
@@ -35,7 +38,11 @@ local function complex_subtract(left: vector, right: vector): vector
 end
 
 local function complex_multiply(left: vector, right: vector): vector
-	return vector.create(left.x * right.x - left.y * right.y, left.x * right.y + left.y * right.x, 0)
+	return vector.create(
+		left.x * right.x - left.y * right.y,
+		left.x * right.y + left.y * right.x,
+		0
+	)
 end
 
 local function complex_conjugate(complex_num: vector): vector
@@ -72,6 +79,7 @@ local function complex_divide(left: vector, right: vector): vector
 	return left * complex_inverse(right)
 end
 
+-- String representation
 local function complex_tostring(complex_num: vector): string
 	return `{REAL(complex_num)} + {IMAGINARY(complex_num)}i`
 end

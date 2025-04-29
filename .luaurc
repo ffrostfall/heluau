@@ -1,0 +1,8 @@
+{
+  "languageMode": "strict",
+  "aliases": {
+    "src": "src/",
+    "tests": "tests/",
+    "vendor": "vendor/"
+  }
+}

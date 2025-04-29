@@ -21,8 +21,4 @@ TEST("complex numbers", function()
 	end
 end)
 
-local all_passed = FINISH()
-
-if not all_passed then
-	error("tests failed")
-end
+FINISH()

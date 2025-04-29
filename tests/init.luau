@@ -1,7 +1,7 @@
 local TEST, CASE, CHECK, FINISH = require("@vendor/testkit").test()
 
-local complex = require("@src/complex")
-local constants = require("@src/constants")
+local complex = require("@complex")
+local constants = require("@constants")
 
 TEST("complex numbers", function()
 	CASE("euler's identity")

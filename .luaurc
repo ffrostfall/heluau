@@ -1,7 +1,9 @@
 {
   "languageMode": "strict",
   "aliases": {
-    "src": "src/",
+    "heluau": "heluau/",
+    "complex": "complex/",
+    "constants": "constants/",
     "tests": "tests/",
     "vendor": "vendor/"
   }

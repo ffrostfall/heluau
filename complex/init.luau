@@ -1,3 +1,5 @@
+local e = 2.7182818285
+
 local function REAL(n: vector)
 	return n.x
 end
@@ -54,9 +56,9 @@ local function complex_log(z: vector): vector
 end
 
 local function complex_exp(z: vector): vector
-	local e = math.exp(REAL(z))
+	local raised = e ^ REAL(z)
 
-	return vector.create(e * math.cos(IMAGINARY(z)), e * math.sin(IMAGINARY(z)), 0)
+	return vector.create(raised * math.cos(IMAGINARY(z)), raised * math.sin(IMAGINARY(z)), 0)
 end
 
 local function complex_pow(base: vector, exponent: vector): vector
@@ -77,6 +79,11 @@ end
 
 local function complex_divide(left: vector, right: vector): vector
 	return left * complex_inverse(right)
+end
+
+local function within_epsilon(left: vector, right: vector, epsilon: number): boolean
+	return math.abs(REAL(left) - REAL(right)) < epsilon
+		and math.abs(IMAGINARY(left) - IMAGINARY(right)) < epsilon
 end
 
 -- String representation
@@ -105,6 +112,7 @@ return {
 	conjugate = complex_conjugate,
 	scale = complex_scale,
 
+	within_epsilon = within_epsilon,
 	tostring = complex_tostring,
 	lerp = complex_lerp,
 }

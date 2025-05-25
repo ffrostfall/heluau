@@ -17,7 +17,7 @@ TEST("complex numbers", function()
 		local x = complex.create(-16, 0)
 		local result = complex.pow(x, complex.create(0.5, 0))
 
-		CHECK(complex.imaginary_part(result) == 4)
+		CHECK(complex.within_epsilon(complex.from_imaginary(4), result, 0.0001))
 	end
 
 	CASE('tostring "1 + 2i"')
